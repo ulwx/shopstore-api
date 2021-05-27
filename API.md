@@ -1,6 +1,7 @@
 # 【平台调用商城】接口列表(商城提供)
 
 ---
+
 1. 用户登录获取token接口
 2. 跳转商城登录页面,进入商城
 3. 商城初始化生成兑换流水号
@@ -14,6 +15,7 @@
 ---
 
 **签名规则**
+
 ``` javascript
 传入参数按参数名的字母顺序升序排列（不包含signature自身），
 将参数值拼接后加上 APP_SECRET（配置文件设定）,做 MD5 Hash。 
@@ -58,13 +60,13 @@ HTTP请求方式
 
 请求参数
 
-|参数|必选|类型|说明|
-|:-----  |:-------|:-----|-----         |
-|appid      |ture    |string|应用id     |
-|p_user_id  |ture    |string|平台的用户标识|
-|mobile_phone |ture  |string|平台的用户手机号|
-|timestamp  |ture    |string|时间戳      |
-|signature  |ture    |string|签名        |
+| 参数         | 必选 | 类型   | 说明             |
+| :----------- | :--- | :----- | ---------------- |
+| appid        | true | string | 应用id           |
+| p_user_id    | true | string | 平台的用户标识   |
+| mobile_phone | true | string | 平台的用户手机号 |
+| timestamp    | true | string | 时间戳           |
+| signature    | true | string | 签名             |
 
 返回字段
 
@@ -95,6 +97,7 @@ HTTP请求方式
         <td>登录token</td>
 	</tr>
 </table>
+
 返回值示例
 
 ``` javascript
@@ -124,18 +127,17 @@ HTTP请求方式
 
 请求参数
 
-|参数|必选|类型|说明|
-|:-----  |:-------|:-----|-----         |
-|appid        |ture    |string|应用id    |
-|p_user_id    |ture    |string|平台用户标识   |
-|token        |ture    |string|token     |
-|timestamp    |ture    |string|时间戳     |
-|signature    |ture    |string|签名       |
+| 参数      | 必选 | 类型   | 说明         |
+| :-------- | :--- | :----- | ------------ |
+| appid     | true | string | 应用id       |
+| p_user_id | true | string | 平台用户标识 |
+| token     | true | string | token        |
+| timestamp | true | string | 时间戳       |
+| signature | true | string | 签名         |
 
 请求示例
 
 ``` javascript
-
 /login?appid=123&p_user_id=1001&token=xxxxxxx&=timestamp=1592832321123&signature=asdfef2fsf22ef2sdfsg3grrg
 
 ```
@@ -143,7 +145,6 @@ HTTP请求方式
 返回值示例
 
 ``` javascript
-
 验证成功直接登录商城，验证不成功直接页面提示登录失败
 
 ```
@@ -164,13 +165,14 @@ HTTP请求方式
 
 请求参数
 
-|参数|必选|类型|说明|
-|:-----  |:-------|:-----|-----         |
-|appid      |ture    |string|应用id     |
-|p_user_id  |ture    |string|平台用户标识  |
-|pay_points  |ture    |string|兑换积分数量  |
-|timestamp  |ture    |string|时间戳      |
-|signature  |ture    |string|签名        |
+| 参数                 | 必选       | 类型         | 说明                           |
+| :------------------- | :--------- | :----------- | ------------------------------ |
+| appid                | true       | string       | 应用id                         |
+| p_user_id            | true       | string       | 平台用户标识                   |
+| pay_points           | true       | string       | 兑换积分数量                   |
+| ***pay_ext_points*** | ***true*** | ***string*** | ***兑换的附加积分（银币数）*** |
+| timestamp            | true       | string       | 时间戳                         |
+| signature            | true       | string       | 签名                           |
 
 返回字段
 
@@ -201,6 +203,7 @@ HTTP请求方式
         <td>兑换流水号</td>
 	</tr>
 </table>
+
 返回值示例
 
 ``` javascript
@@ -230,15 +233,15 @@ HTTP请求方式
 
 请求参数
 
-|参数|必选|类型|说明|
-|:-----  |:-------|:-----|-----         |
-|appid      |ture    |string|应用id     |
-|p_user_id      |ture    |string|平台用户标识  |
-|order_number   |ture    |string|兑换流水号  |
-|pay_points     |ture    |string|兑换积分(金币数)  |
-|pay_ext_points |true |string|兑换的附加积分（银币数） |
-|timestamp  |ture    |string|时间戳      |
-|signature  |ture    |string|签名        |
+| 参数                 | 必选       | 类型         | 说明                           |
+| :------------------- | :--------- | :----------- | ------------------------------ |
+| appid                | true       | string       | 应用id                         |
+| p_user_id            | true       | string       | 平台用户标识                   |
+| order_number         | true       | string       | 兑换流水号                     |
+| pay_points           | true       | string       | 兑换积分(金币数)               |
+| ***pay_ext_points*** | ***true*** | ***string*** | ***兑换的附加积分（银币数）*** |
+| timestamp            | true       | string       | 时间戳                         |
+| signature            | true       | string       | 签名                           |
 
 返回字段
 
@@ -265,6 +268,7 @@ HTTP请求方式
         <td>1:处理成功;2:处理失败</td>
 	</tr>
 </table>
+
 返回值示例
 
 ``` javascript
@@ -276,6 +280,8 @@ HTTP请求方式
     }
 }
 ```
+
+
 
 ## 积分兑换查询接口
 
@@ -293,13 +299,13 @@ HTTP请求方式
 
 请求参数
 
-|参数|必选|类型|说明|
-|:-----  |:-------|:-----|-----           |
-|appid         |ture    |string|应用id     |
-|p_user_id     |ture    |string|平台用户标识  |
-|order_number   |ture    |string|兑换积分流水编号  |
-|timestamp     |ture    |string|时间戳     |
-|signature     |ture    |string|签名       |
+| 参数         | 必选 | 类型   | 说明             |
+| :----------- | :--- | :----- | ---------------- |
+| appid        | true | string | 应用id           |
+| p_user_id    | true | string | 平台用户标识     |
+| order_number | true | string | 兑换积分流水编号 |
+| timestamp    | true | string | 时间戳           |
+| signature    | true | string | 签名             |
 
 返回字段
 
@@ -327,7 +333,11 @@ HTTP请求方式
 	</tr>
 	<tr>
         <td>pay_points</td>
-        <td>积分数量</td>
+        <td>积分数量（金币）</td>
+    </tr>
+    <tr>
+        <td>pay_ext_points</td>
+        <td>附加积分数量（银币）</td>
     </tr>
     <tr>
         <td>order_status</td>
@@ -338,6 +348,7 @@ HTTP请求方式
         <td>创建时间(时间戳)</td>
     </tr>
 </table>
+
 返回值示例
 
 ``` javascript
@@ -348,6 +359,7 @@ HTTP请求方式
         "order_number":"O_12434",
         "create_time":"1571415177",
         "pay_points":"202.00",
+         "pay_ext_points":"30.00"  
         "status":"1"
     }
 }
@@ -369,13 +381,14 @@ HTTP请求方式
 
 请求参数
 
-|参数|必选|类型|说明|
-|:-----  |:-------|:-----|-----         |
-|appid      |ture    |string|应用id     |
-|p_user_id  |ture    |string|平台用户标识  |
-|cut_points  |ture    |string|兑换积分数量  |
-|timestamp  |ture    |string|时间戳      |
-|signature  |ture    |string|签名        |
+| 参数                 | 必选       | 类型         | 说明                               |
+| :------------------- | :--------- | :----------- | ---------------------------------- |
+| appid                | true       | string       | 应用id                             |
+| p_user_id            | true       | string       | 平台用户标识                       |
+| cut_points           | true       | string       | 扣减的积分数量（金币数）           |
+| ***cut_ext_points*** | ***true*** | ***string*** | ***扣减的附加积分数量（银币数）*** |
+| timestamp            | true       | string       | 时间戳                             |
+| signature            | true       | string       | 签名                               |
 
 返回字段
 
@@ -406,6 +419,7 @@ HTTP请求方式
         <td>扣减积分流水号</td>
 	</tr>
 </table>
+
 返回值示例
 
 ``` javascript
@@ -435,14 +449,15 @@ HTTP请求方式
 
 请求参数
 
-|参数|必选|类型|说明|
-|:-----  |:-------|:-----|-----         |
-|appid      |ture    |string|应用id     |
-|p_user_id      |ture    |string|平台用户标识  |
-|cut_order_number   |ture    |string|兑换流水号  |
-|cut_points     |ture    |string|扣减积分  |
-|timestamp  |ture    |string|时间戳      |
-|signature  |ture    |string|签名        |
+| 参数                 | 必选 | 类型   | 说明                               |
+| :------------------- | :--- | :----- | ---------------------------------- |
+| appid                | true | string | 应用id                             |
+| p_user_id            | true | string | 平台用户标识                       |
+| cut_order_number     | true | string | 兑换流水号                         |
+| cut_points           | true | string | 扣减积分（金币数）                 |
+| ***cut_ext_points*** | true | string | ***扣减的附加积分数量（银币数）*** |
+| timestamp            | true | string | 时间戳                             |
+| signature            | true | string | 签名                               |
 
 返回字段
 
@@ -469,6 +484,7 @@ HTTP请求方式
         <td>1:处理成功;2:处理失败</td>
 	</tr>
 </table>
+
 返回值示例
 
 ``` javascript
@@ -499,15 +515,15 @@ HTTP请求方式
 
 请求参数
 
-|参数|必选|类型|说明|
-|:-----  |:-------|:-----|-----         |
-|appid      |ture    |string|应用id     |
-|done_time_start |ture  |string|下单开始时间  |
-|done_time_end   |ture  |string|下单结束时间  |
-|page_no         |ture    |string|当前页(从1开始)  |
-|page_size   |ture    |string|每页条数(最大100条)  |
-|timestamp  |ture    |string|时间戳      |
-|signature  |ture    |string|签名        |
+| 参数            | 必选 | 类型   | 说明                |
+| :-------------- | :--- | :----- | ------------------- |
+| appid           | true | string | 应用id              |
+| done_time_start | true | string | 下单开始时间        |
+| done_time_end   | true | string | 下单结束时间        |
+| page_no         | true | string | 当前页(从1开始)     |
+| page_size       | true | string | 每页条数(最大100条) |
+| timestamp       | true | string | 时间戳              |
+| signature       | true | string | 签名                |
 
 返回字段
 
@@ -574,6 +590,7 @@ HTTP请求方式
         <td>子订单状态(代发货\已发货)</td>
 	</tr>
 </table>
+
 返回值示例
 
 ``` javascript
@@ -624,12 +641,12 @@ HTTP请求方式
 
 请求参数
 
-|参数|必选|类型|说明|
-|:-----  |:-------|:-----|-----         |
-|appid      |ture    |string|应用id     |
-|p_user_id  |ture  |string|平台用户id    |
-|timestamp  |ture    |string|时间戳      |
-|signature  |ture    |string|签名        |
+| 参数      | 必选 | 类型   | 说明       |
+| :-------- | :--- | :----- | ---------- |
+| appid     | ture | string | 应用id     |
+| p_user_id | ture | string | 平台用户id |
+| timestamp | ture | string | 时间戳     |
+| signature | ture | string | 签名       |
 
 返回字段
 
@@ -649,21 +666,34 @@ HTTP请求方式
 		<td>string</td>
         <td colspan="2">返回值消息</td>
 	</tr>
-	<tr>
+<tr>
         <td rowspan="11">data</td>
         <td rowspan="11">json</td>
         <td>current_points</td>
-        <td>持有积分</td>
-	</tr>
+        <td>持有积分（金币）</td>
+</tr>
     <tr>
         <td>use_points</td>
-        <td>消耗总积分</td>
+        <td>消耗总积分（金币）</td>
 	</tr>
     <tr>
         <td>back_points</td>
-        <td>回退总积分</td>
+        <td>回退总积分（金币）</td>
+	</tr>
+         <tr>
+        <td>current_ext_points</td>
+        <td>持有附加总积分（银币）</td>
+	</tr>
+        <tr>
+        <td>use_ext_points</td>
+        <td>消耗附加总积分（银币）</td>
+	</tr>
+    <tr>
+        <td>back_ext_points</td>
+        <td>回退总附加积分（银币）</td>
 	</tr>
 </table>
+
 返回值示例
 
 ``` javascript
@@ -671,9 +701,13 @@ HTTP请求方式
     "code": 0,
     "msg": "success",
     "data": {
-        "current_points": 100,
-        "use_points": 105,
-        "back_points": 10
+        "current_points": "100.00",
+        "use_points": "105.00",
+        "back_points": "10.00",
+         "current_ext_points": "100.00",
+        "use_ext_points": "105.00",
+        "back_ext_points": "10.00",
+            
     }
 }
 ```
